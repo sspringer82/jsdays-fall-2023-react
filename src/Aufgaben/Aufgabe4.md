@@ -1,5 +1,7 @@
 # Aufgabe 4 - löschen
 
+https://github.com/sspringer82/jsdays-fall-2023-react
+
 Füge in die ListItem Komponente einen Button hinzu, der beim Click den DAtensatz löscht.
 
 Die ListItem Komponente erhält eine onDelete-Prop, die du aus der Elternkomponente weitergibst.

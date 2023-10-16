@@ -3,8 +3,9 @@ import ListItem from './ListItem';
 import { Person } from './types/Person';
 
 const List: React.FC = () => {
-  console.log('RENDER');
   const [persons, setPersons] = useState<Person[]>([]);
+
+  console.log('RENDER');
 
   // useEffect(() => {
   //   async function fetchData() {
@@ -21,13 +22,23 @@ const List: React.FC = () => {
       .then((data) => setPersons(data));
   }, []);
 
+  function handleDelete(id: number): void {
+    fetch('http://localhost:3002/persons/' + id, {
+      method: 'DELETE',
+    }).then(() => {
+      setPersons((prevPersons) => {
+        return prevPersons.filter((person) => person.id !== id);
+      });
+    });
+  }
+
   if (persons.length === 0) {
     return <div>Keine Daten vorhanden.</div>;
   } else {
     return (
       <ul>
         {persons.map((person) => (
-          <ListItem key={person.id} person={person} />
+          <ListItem key={person.id} person={person} onDelete={handleDelete} />
         ))}
       </ul>
     );

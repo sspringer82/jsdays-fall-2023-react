@@ -1,5 +1,7 @@
 # Aufgabe 1 liste rendern
 
+Erzeuge eine neue Komponente List in der Datei `List.tsx` und binde sie in der App-Komponente ein.
+
 Stelle eine Liste von Personendatensätzen dar.
 
 Speichere die Personendaten in einer lokalen Variablen.

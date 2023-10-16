@@ -1,4 +1,6 @@
-import { Person } from './types/Person';
+import { Person } from '../types/Person';
+import './ListItem.css';
+import style from './ListItem.module.css';
 
 type Props = {
   person: Person;
@@ -7,12 +9,13 @@ type Props = {
 
 const ListItem: React.FC<Props> = ({ person, onDelete }) => {
   return (
-    <li>
+    <li className={style.listItem}>
       {person.firstName} {person.lastName}
       <button
         onClick={() => {
           onDelete(person.id);
         }}
+        style={{ backgroundColor: 'hotpink' }}
       >
         löschen
       </button>

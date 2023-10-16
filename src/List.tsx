@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import ListItem from './ListItem';
+import ListItem from './ListItem/ListItem';
 import { CreatePerson, Person } from './types/Person';
 import Form from './Form';
 import { save } from './api/person.api';
+import './List.scss';
 
 const List: React.FC = () => {
   const [persons, setPersons] = useState<Person[]>([]);
@@ -65,7 +66,7 @@ const List: React.FC = () => {
             suchen!
           </button>
         </div>
-        <ul>
+        <ul className="listItemContainer">
           {persons
             .filter(
               (person) =>

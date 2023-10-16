@@ -15,3 +15,9 @@
 
 
 ## Links
+- https://react.dev
+- https://vitejs.dev/
+- https://npmtrends.com/@angular/core-vs-angular-vs-react-vs-vue
+- https://vitest.dev/
+- https://docs.pmnd.rs/react-three-fiber/getting-started/introduction
+- https://github.com/vadimdemedes/ink

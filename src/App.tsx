@@ -1,8 +1,8 @@
 import './App.css';
-import Parent from './examples/ComponentTree';
+import List from './List';
 
 function App() {
-  return <Parent />;
+  return <List />;
 }
 
 export default App;

@@ -1,3 +1,4 @@
+import ListItem from './ListItem';
 import { Person } from './types/Person';
 
 const List: React.FC = () => {
@@ -37,9 +38,7 @@ const List: React.FC = () => {
     return (
       <ul>
         {persons.map((person) => (
-          <li key={person.id}>
-            {person.firstName} {person.lastName}
-          </li>
+          <ListItem key={person.id} person={person} />
         ))}
       </ul>
     );

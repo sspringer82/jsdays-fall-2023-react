@@ -7,3 +7,6 @@ In der List-Komponente:
 
 Vorbedingungen:
 - stelle sicher dass das Backend läuft (http://localhost:3001/persons)
+  * `npm install json-server`
+  * data.json erstellen
+  * `npx json-server -p 3001 -w data.json` alternativ: Backend-Script in der `package.json`

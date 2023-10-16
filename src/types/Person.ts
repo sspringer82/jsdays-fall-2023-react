@@ -7,3 +7,5 @@ export type Person = {
   zip: string;
   country: string;
 };
+
+export type CreatePerson = Omit<Person, 'id'>;

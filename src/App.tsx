@@ -5,7 +5,7 @@ import Form1 from './examples/Form1';
 import Form2 from './examples/Form2';
 
 function App() {
-  return <Form2 />;
+  return <List />;
 }
 
 export default App;

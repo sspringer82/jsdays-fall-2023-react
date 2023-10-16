@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import ListItem from './ListItem';
-import { Person } from './types/Person';
+import { CreatePerson, Person } from './types/Person';
+import Form from './Form';
+import { save } from './api/person.api';
 
 const List: React.FC = () => {
   const [persons, setPersons] = useState<Person[]>([]);
@@ -40,11 +42,17 @@ const List: React.FC = () => {
     });
   }
 
+  async function handleSave(newPerson: CreatePerson) {
+    const createdPerson = await save(newPerson);
+    setPersons((prevPersons) => [...prevPersons, createdPerson]);
+  }
+
   if (persons.length === 0) {
     return <div>Keine Daten vorhanden.</div>;
   } else {
     return (
       <>
+        <Form onSave={handleSave} />
         <div>
           <label>
             Suche: <input type="text" ref={filterRef} />

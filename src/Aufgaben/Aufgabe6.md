@@ -6,7 +6,7 @@ Setze für jede Eigenschaft des Person Typs ein Formularfeld um
 
 Die Form-Komponente ist Kindkomponente der Liste.
 
-In der List Komponente, setze eine Funktion save um, die die DAten zum Server schickt.
+In der List Komponente, setze eine Funktion save um, die die Daten zum Server schickt.
 
 Übergib die save-Funktion an das Formular.
 

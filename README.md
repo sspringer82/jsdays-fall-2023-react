@@ -25,3 +25,4 @@ https://github.com/sspringer82/jsdays-fall-2023-react
 - https://github.com/vadimdemedes/ink
 - https://overreacted.io/a-complete-guide-to-useeffect/
 - https://github.com/enaqx/awesome-react
+- https://www.react-hook-form.com/

@@ -31,7 +31,7 @@ function State() {
     fetch('http://localhost:3002/persons')
       .then((response) => response.json())
       .then((data) => {
-        setPersons((previousPersons) => {
+        setPersons(() => {
           return data.map(
             (person: Person) => person.firstName + ' ' + person.lastName
           );

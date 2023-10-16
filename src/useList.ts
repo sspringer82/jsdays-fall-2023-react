@@ -1,7 +1,11 @@
 import { useEffect } from 'react';
 import { usePersonContext } from './PersonProvider';
+import { Person } from './types/Person';
 
-export default function useList() {
+export default function useList(): {
+  persons: Person[];
+  handleDelete: (id: number) => void;
+} {
   const [persons, setPersons] = usePersonContext();
 
   useEffect(() => {

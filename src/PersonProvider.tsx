@@ -7,9 +7,9 @@ import {
 } from 'react';
 import { Person } from './types/Person';
 
-type ContextType = [Person[], Dispatch<SetStateAction<Person[]>>] | null;
+type ContextType = [Person[], Dispatch<SetStateAction<Person[]>>];
 
-const PersonContext = createContext<ContextType>(null);
+const PersonContext = createContext<ContextType | null>(null);
 
 type Props = {
   children?: React.ReactNode;

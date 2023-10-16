@@ -1,5 +1,7 @@
 # Einstieg in React
 
+https://github.com/sspringer82/jsdays-fall-2023-react
+
 ## Setup
 
 * `npm create vite@latest my-react-app -- --template react-ts`

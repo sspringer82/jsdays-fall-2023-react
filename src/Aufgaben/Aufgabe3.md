@@ -6,6 +6,7 @@ In der List-Komponente:
 * lade die Daten vom Server mit `useEffect(() => {}, [])` und aktualisiere den State mit `setPersons`
 
 Vorbedingungen:
+- Repo: https://github.com/sspringer82/jsdays-fall-2023-react
 - stelle sicher dass das Backend läuft (http://localhost:3001/persons)
   * `npm install json-server`
   * data.json erstellen

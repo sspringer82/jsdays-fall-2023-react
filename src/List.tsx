@@ -1,36 +1,25 @@
+import { useEffect, useState } from 'react';
 import ListItem from './ListItem';
 import { Person } from './types/Person';
 
 const List: React.FC = () => {
-  const persons: Person[] = [
-    {
-      id: 1,
-      firstName: 'Hans',
-      lastName: 'Müller',
-      street: 'Hauptstraße 1',
-      city: 'Berlin',
-      zip: '10115',
-      country: 'Deutschland',
-    },
-    {
-      id: 2,
-      firstName: 'Anna',
-      lastName: 'Schmidt',
-      street: 'Musterweg 2',
-      city: 'Hamburg',
-      zip: '20095',
-      country: 'Deutschland',
-    },
-    {
-      id: 3,
-      firstName: 'Michael',
-      lastName: 'Schulz',
-      street: 'Lindenallee 3',
-      city: 'München',
-      zip: '80331',
-      country: 'Deutschland',
-    },
-  ];
+  console.log('RENDER');
+  const [persons, setPersons] = useState<Person[]>([]);
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await fetch('http://localhost:3002/persons');
+  //     const data = await response.json();
+  //     setPersons(data);
+  //   }
+  //   fetchData();
+  // }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:3002/persons')
+      .then((response) => response.json())
+      .then((data) => setPersons(data));
+  }, []);
 
   if (persons.length === 0) {
     return <div>Keine Daten vorhanden.</div>;

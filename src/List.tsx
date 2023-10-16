@@ -1,48 +1,13 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import ListItem from './ListItem/ListItem';
-import { CreatePerson, Person } from './types/Person';
-import Form from './Form';
-import { save } from './api/person.api';
 import './List.scss';
-import { PersonContext, usePersonContext } from './PersonProvider';
+import useList from './useList';
 
 const List: React.FC = () => {
-  const [persons, setPersons] = usePersonContext();
-
-  console.log('RENDER');
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const response = await fetch('http://localhost:3002/persons');
-  //     const data = await response.json();
-  //     setPersons(data);
-  //   }
-  //   fetchData();
-  // }, []);
-
-  useEffect(() => {
-    fetch('http://localhost:3002/persons')
-      .then((response) => response.json())
-      .then((data) => setPersons(data));
-  }, []);
+  const { persons, handleDelete } = useList();
 
   const filterRef = useRef<HTMLInputElement>(null);
   const [filter, setFilter] = useState<string>('');
-
-  // bei jeder filteränderung loggen:
-  // useEffect(() => {
-  //   console.log(filter);
-  // }, [filter]);
-
-  function handleDelete(id: number): void {
-    fetch('http://localhost:3002/persons/' + id, {
-      method: 'DELETE',
-    }).then(() => {
-      setPersons((prevPersons) => {
-        return prevPersons.filter((person) => person.id !== id);
-      });
-    });
-  }
 
   if (persons.length === 0) {
     return <div>Keine Daten vorhanden.</div>;

@@ -1,11 +1,15 @@
 import './App.css';
+import Form from './Form';
 import List from './List';
-import Button from './examples/Button';
-import Form1 from './examples/Form1';
-import Form2 from './examples/Form2';
+import { PersonProvider } from './PersonProvider';
 
 function App() {
-  return <List />;
+  return (
+    <PersonProvider>
+      <Form />
+      <List />
+    </PersonProvider>
+  );
 }
 
 export default App;

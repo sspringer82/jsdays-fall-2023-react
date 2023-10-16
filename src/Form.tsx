@@ -1,11 +1,16 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { CreatePerson } from './types/Person';
+import { usePersonContext } from './PersonProvider';
+import { save } from './api/person.api';
 
-type Props = {
-  onSave: (person: CreatePerson) => void;
-};
+const Form: React.FC = () => {
+  const [, setPersons] = usePersonContext();
 
-const Form: React.FC<Props> = ({ onSave }) => {
+  async function handleSave(newPerson: CreatePerson) {
+    const createdPerson = await save(newPerson);
+    setPersons((prevPersons) => [...prevPersons, createdPerson]);
+  }
+
   const [formState, setFormState] = useState<CreatePerson>({
     firstName: '',
     lastName: '',
@@ -24,7 +29,7 @@ const Form: React.FC<Props> = ({ onSave }) => {
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    onSave(formState);
+    handleSave(formState);
   }
 
   return (

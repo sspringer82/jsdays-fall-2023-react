@@ -1,12 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import ListItem from './ListItem/ListItem';
 import { CreatePerson, Person } from './types/Person';
 import Form from './Form';
 import { save } from './api/person.api';
 import './List.scss';
+import { PersonContext, usePersonContext } from './PersonProvider';
 
 const List: React.FC = () => {
-  const [persons, setPersons] = useState<Person[]>([]);
+  const [persons, setPersons] = usePersonContext();
 
   console.log('RENDER');
 
@@ -43,17 +44,11 @@ const List: React.FC = () => {
     });
   }
 
-  async function handleSave(newPerson: CreatePerson) {
-    const createdPerson = await save(newPerson);
-    setPersons((prevPersons) => [...prevPersons, createdPerson]);
-  }
-
   if (persons.length === 0) {
     return <div>Keine Daten vorhanden.</div>;
   } else {
     return (
       <>
-        <Form onSave={handleSave} />
         <div>
           <label>
             Suche: <input type="text" ref={filterRef} />

@@ -5,6 +5,8 @@
 * `npm create vite@latest my-react-app -- --template react-ts`
 * `cd my-react-app`
 * `npm install`
+* `npm run dev`
+* Im Browser die angegebene Adresse öffnen
 
 ### Backend
 * `npm install json-server`

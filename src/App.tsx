@@ -1,13 +1,8 @@
 import './App.css';
-import Jsx from './examples/Jsx';
+import List from './List';
 
 function App() {
-  return (
-    <>
-      <h1>App works</h1>
-      <Jsx />
-    </>
-  );
+  return <List />;
 }
 
 export default App;

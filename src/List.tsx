@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ListItem from './ListItem';
 import { Person } from './types/Person';
 
@@ -22,6 +22,14 @@ const List: React.FC = () => {
       .then((data) => setPersons(data));
   }, []);
 
+  const filterRef = useRef<HTMLInputElement>(null);
+  const [filter, setFilter] = useState<string>('');
+
+  // bei jeder filteränderung loggen:
+  // useEffect(() => {
+  //   console.log(filter);
+  // }, [filter]);
+
   function handleDelete(id: number): void {
     fetch('http://localhost:3002/persons/' + id, {
       method: 'DELETE',
@@ -36,11 +44,35 @@ const List: React.FC = () => {
     return <div>Keine Daten vorhanden.</div>;
   } else {
     return (
-      <ul>
-        {persons.map((person) => (
-          <ListItem key={person.id} person={person} onDelete={handleDelete} />
-        ))}
-      </ul>
+      <>
+        <div>
+          <label>
+            Suche: <input type="text" ref={filterRef} />
+          </label>
+          <button
+            onClick={() => {
+              setFilter(filterRef.current!.value);
+            }}
+          >
+            suchen!
+          </button>
+        </div>
+        <ul>
+          {persons
+            .filter(
+              (person) =>
+                person.firstName.toLowerCase().includes(filter.toLowerCase()) ||
+                person.lastName.toLowerCase().includes(filter.toLowerCase())
+            )
+            .map((person) => (
+              <ListItem
+                key={person.id}
+                person={person}
+                onDelete={handleDelete}
+              />
+            ))}
+        </ul>
+      </>
     );
   }
 };

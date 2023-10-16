@@ -24,3 +24,4 @@ https://github.com/sspringer82/jsdays-fall-2023-react
 - https://docs.pmnd.rs/react-three-fiber/getting-started/introduction
 - https://github.com/vadimdemedes/ink
 - https://overreacted.io/a-complete-guide-to-useeffect/
+- https://github.com/enaqx/awesome-react

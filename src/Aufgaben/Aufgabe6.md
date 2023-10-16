@@ -13,3 +13,18 @@ In der List Komponente, setze eine Funktion save um, die die DAten zum Server sc
 Beim Submit des Formulars, rufe die save-Funktion auf.
 
 Bei erfolgreicher Speicherung, aktualisiere den State der Liste.
+
+Speichern der Daten:
+```ts
+async function save(data:Person): Promise<void> {
+  const response = await fetch('http://localhost:3001/persons', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data)
+  });
+  const newPerson = await response.json();
+  return newPerson;
+}
+```
